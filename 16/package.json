@@ -1,0 +1,16 @@
+{
+  "name": "16",
+  "version": "1.0.0",
+  "description": "",
+  "main": "word_schema.js",
+  "dependencies": {
+    "mongodb": "^2.1.10",
+    "mongoose": "^4.4.8"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
