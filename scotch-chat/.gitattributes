@@ -1,0 +1,6 @@
+app filter=lfs diff=lfs merge=lfs -text
+bower.json filter=lfs diff=lfs merge=lfs -text
+gulpFile.js filter=lfs diff=lfs merge=lfs -text
+node_modules filter=lfs diff=lfs merge=lfs -text
+package.json filter=lfs diff=lfs merge=lfs -text
+server.js filter=lfs diff=lfs merge=lfs -text
