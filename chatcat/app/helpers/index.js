@@ -1,10 +1,11 @@
 'use strict';
+const router = require('express').Router();
 
 // Iterate through the routes object and mount the routes
-let registerRoutes = (routes, method) => {
+let _registerRoutes = (routes, method) => {
     for (let key in routes){
         if (typeof routes[key] === 'object' && routes[key] !== null && !(routes[key] instanceof Array)){
-            registerRoutes(routes[key], key);
+            _registerRoutes(routes[key], key);
         } else {
             // Register the routes
             if (method === 'get') {
