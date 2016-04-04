@@ -5,21 +5,13 @@ const express = require('express');
 const app = express();
 
 app.set('port', process.env.PORT || 3000);
-
-let helloMiddleware = (req, res, next) => {
-    req.hello = "Hello! It's me! I was wondering.....you get the idea!"
-    next();
-};
-
-app.use('/', helloMiddleware);
+app.set('views', './views');
+app.set('view engine', 'ejs');
 
 app.get('/', (req,res, next) => {
-    res.send('<h1>Hello Express!</h1>');
-    console.log(req.hello);
-});
-
-app.get('/dashboard', (req, res, next) => {
-    res.send('<h1>This is the dashboard page! Middleware says: ' + req.hello +'</h1>');
+    // res.send('<h1>Hello Express!</h1>');
+    // res.sendfile(__dirname + '/views/login.htm')
+    res.render('login');
 });
 
 app.listen(app.get('port'), () => {
