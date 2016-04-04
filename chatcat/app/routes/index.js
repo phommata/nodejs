@@ -1,5 +1,6 @@
 'use strict';
 const router = require('express').Router();
+const h = require('../helpers');
 
 module.exports = () => {
     let routes = {
@@ -35,7 +36,5 @@ module.exports = () => {
         }
     }
 
-    registerRoutes(routes);
-
-    return router;
+    return h.route(routes);
 }
