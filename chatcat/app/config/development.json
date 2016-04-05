@@ -1,5 +1,11 @@
 {
   "host": "http://localhost:3000",
   "dbURL": "***REMOVED***",
-  "sessionSecret": "***REMOVED***"
+  "sessionSecret": "***REMOVED***",
+  "fb" : {
+    "clientID"      : "***REMOVED***", // your App ID
+    "clientSecret"  : "***REMOVED***", // your App Secret
+    "callbackURL"   : "http://localhost:3000/auth/facebook/callback",
+    "profileFields" : ["id", "displayName", "photos"]
+  }
 }
