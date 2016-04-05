@@ -1,4 +1,5 @@
 {
   "host": "http://localhost:3000",
-  "dbURL": "***REMOVED***"
+  "dbURL": "***REMOVED***",
+  "sessionSecret": "***REMOVED***"
 }
