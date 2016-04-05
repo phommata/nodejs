@@ -32,7 +32,7 @@ let findOne = profileID => {
     });
 }
 
-// Create a new user and return
+// Create a new user and returns that instance
 let createNewUser = profile => {
     return new Promise((resolve, reject) => {
         let newChatUser = new db.userModel({
@@ -51,7 +51,23 @@ let createNewUser = profile => {
     })
 }
 
+// The ES6 promisified version of findById
+let findById = id => {
+    return new Promise((resolve, reject) => {
+        db.userModel.findById(id, (error, user) => {
+            if (error) {
+                reject(error);
+            } else {
+                resolve(user);
+            }
+        })
+    });
+}
+
 module.exports = {
     // route: route
-    route // ES6 short-hand
+    route, // ES6 short-hand
+    findOne,
+    createNewUser,
+    findById
 }
