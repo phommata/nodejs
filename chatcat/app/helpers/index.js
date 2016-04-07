@@ -39,7 +39,7 @@ let createNewUser = profile => {
             profileId: profile.id,
             fullName: profile.displayName,
             profilePic: profile.photos[0].value || ''
-        })
+        });
 
         newChatUser.save(error => {
             if (error){
@@ -47,8 +47,8 @@ let createNewUser = profile => {
             } else {
                 resolve(newChatUser);
             }
-        })
-    })
+        });
+    });
 }
 
 // The ES6 promisified version of findById
@@ -60,7 +60,7 @@ let findById = id => {
             } else {
                 resolve(user);
             }
-        })
+        });
     });
 }
 

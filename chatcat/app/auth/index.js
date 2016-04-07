@@ -5,7 +5,7 @@ const h = require('../helpers');
 const FacebookStrategy = require('passport-facebook').Strategy;
 
 module.exports = () => {
-    passport.serializeUser((user, done) => {
+    passport.serializeUser ((user, done) => {
         done(null, user.id);
     });
 
@@ -28,7 +28,7 @@ module.exports = () => {
                     // Create a new user and return
                     h.createNewUser(profile)
                         .then(newChatUser => done(null, newChatUser))
-                        .catch(error => console.log('Error when creating new user'))
+                        .catch(error => console.log('Error when creating new user'));
                 }
             });
     }

@@ -6,7 +6,6 @@
       "clientID"      : "***REMOVED***",
     "clientSecret"  : "***REMOVED***",
     "callbackURL"   : "http://localhost:3000/auth/facebook/callback",
-    "profileFields" : ["id", "displayName", "photos"],
-    "passReqToCallback" : true
+    "profileFields" : ["id", "displayName", "photos"]
   }
 }
