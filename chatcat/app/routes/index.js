@@ -19,9 +19,18 @@ module.exports = () => {
             '/auth/facebook': passport.authenticate('facebook'),
             '/auth/facebook/callback': passport.authenticate('facebook', {
                 successRedirect: '/rooms',
-                failureRedirect: '/',
+                failureRedirect: '/'
 
-            })
+            }),
+            '/auth/twitter': passport.authenticate('twitter'),
+            '/auth/twitter/callback': passport.authenticate('twitter', {
+                successRedirect: '/rooms',
+                failureRedirect: '/'
+            }),
+            '/logout': (req, res, next) => {
+                req.logout();
+                res.redirect('/');
+            }
         },
         'post': {
 
