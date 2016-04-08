@@ -1,10 +1,10 @@
 {
   "host": "http://localhost:3000",
-  "dbURI": "***REMOVED***",
+  "dbURI": "<your mongoLab.com database URI>",
   "sessionSecret": "***REMOVED***",
   "fb" : {
-      "clientID"      : "***REMOVED***",
-    "clientSecret"  : "***REMOVED***",
+    "clientID"      : "<facebook app ID key>",
+    "clientSecret"  : "<facebook app secret key>",
     "callbackURL"   : "http://localhost:3000/auth/facebook/callback",
     "profileFields" : ["id", "displayName", "photos"]
   },
