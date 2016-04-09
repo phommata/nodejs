@@ -5,5 +5,7 @@ module.exports = (io, app) => {
 
     io.of('/roomslist').on('connection', socket => {
 
+    io.of('/roomslist').on('connection', socket => {
+        console.log('Socket.io connected to client!');
     })
 }
