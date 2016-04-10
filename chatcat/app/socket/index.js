@@ -34,7 +34,8 @@ module.exports = (io, app) => {
             let usersList = h.addUserToRoom(allrooms, data, socket);
 
             // Update the list of active users as shown on the chatroom page
-            console.log('usersList: ', usersList);
-        })
+            socket.broadcast.to(data.roomID).emit('updateUsersList', JSON.stringify(usersList.users));
+            socket.emit('updateUsersList', JSON.stringify(usersList.users));
+        });
     });
 }
