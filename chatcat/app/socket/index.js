@@ -37,5 +37,12 @@ module.exports = (io, app) => {
             socket.broadcast.to(data.roomID).emit('updateUsersList', JSON.stringify(usersList.users));
             socket.emit('updateUsersList', JSON.stringify(usersList.users));
         });
+
+        // When a socket exits
+        socket.on('disconnect', () => {
+            // Find the room, to which the socket is connected to and purge the user
+            let room = h.removeUserFromRoom(allrooms, socket);
+            socket.broadcast.to(room.roomID).emit('updateUsersList', JSON.stringify(room.users));
+        });
     });
 }
