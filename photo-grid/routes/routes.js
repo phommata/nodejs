@@ -1,4 +1,4 @@
-module.exports = function(express, app, formidable, fs, os, gm){
+module.exports = function(express, app, formidable, fs, os, gm, knoxClient){
     var router = express.Router();
 
     router.get('/', function(req, res, next){
@@ -35,6 +35,20 @@ module.exports = function(express, app, formidable, fs, os, gm){
                     // Resize the image and upload this file into the S3 bucket
                     gm(nfile).resize(300).write(nfile, function(){
                         // Upload to the S3 bucket
+                        fs.readFile(nfile, function (err, buf) {
+                            var req = knoxClient.put(fname, {
+                                'Content-Length': buf.length,
+                                'Content-Type': image/jpeg,
+                            })
+
+                            req.on('response', function(res){
+                                if (res.statusCode == 200){
+                                    // This means that the file is in the S3 Bucket!
+                                }
+                            })
+
+                            req.end(buf);
+                        })
                     });
                 })
             })
