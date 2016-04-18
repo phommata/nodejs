@@ -79,5 +79,11 @@ module.exports = function(express, app, formidable, fs, os, gm, knoxClient, mong
             })
     });
 
+    router.get('/getimages', function (req, res, next) {
+        singleImageModel.find({}, function (err, result) {
+            res.send(JSON.stringify(result));
+        })
+    })
+
     app.use('/', router);
 }
