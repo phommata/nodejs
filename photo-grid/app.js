@@ -6,7 +6,7 @@ var express = require('express'),
     os = require('os'),
     formidable = require('formidable'),
     gm = require('gm'),
-    mongoose = require('mongoose'.connnect(config.dbURL));
+    mongoose = require('mongoose').connect(config.dbURL);
 
 var app = express();
 
