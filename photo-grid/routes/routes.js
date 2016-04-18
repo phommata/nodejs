@@ -50,7 +50,7 @@ module.exports = function(express, app, formidable, fs, os, gm, knoxClient, mong
                         fs.readFile(nfile, function (err, buf) {
                             var req = knoxClient.put(fname, {
                                 'Content-Length': buf.length,
-                                'Content-Type': image/jpeg,
+                                'Content-Type': 'image/jpeg',
                             })
 
                             req.on('response', function(res){
