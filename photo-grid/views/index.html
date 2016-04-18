@@ -43,7 +43,7 @@
 							str += '</div>';
 							str += '</div>';
 							str += '<div class="imageHolder">';
-							str += '<img src="http://d136vtl167445h.cloudfront.net/***REMOVED***/' + imageList[i].filename + '" alt="">';
+							str += '<img src="http://d136vtl167445h.cloudfront.net/' + imageList[i].filename + '" alt="">';
 							str += '</div>';
 							str += '</li>';
 
@@ -81,6 +81,17 @@
 					})
 				}
 			}
+
+			$(document).on('click', '.voteUp', function(e){
+				var that = $(this);
+				ajax({
+					url: host + '/voteup/' + that.data('photoid'),
+					success: function(data){
+						var parseData = JSON.parse(data.response);
+						that.find('h4').html(parseData.votes);
+					}
+				})
+			})
 		})
 	</script>
 
