@@ -1,4 +1,16 @@
-module.exports = function(express, app, formidable, fs, os, gm, knoxClient){
+module.exports = function(express, app, formidable, fs, os, gm, knoxClient, mongoose, io){
+    var Socket;
+
+    io.on('connection', function(socket){
+        Socket = socket;
+    })
+    var singleImage = mongoose.Schema({
+        filename: String,
+        votes: Number
+    })
+
+    var singleImageModel = mongoose.model('singleImage', singleImage);
+
     var router = express.Router();
 
     router.get('/', function(req, res, next){
@@ -44,6 +56,19 @@ module.exports = function(express, app, formidable, fs, os, gm, knoxClient){
                             req.on('response', function(res){
                                 if (res.statusCode == 200){
                                     // This means that the file is in the S3 Bucket!
+                                    var newImage = new singleImageModel({
+                                        filename: fname,
+                                        votes: 0
+                                    }).save();
+
+                                    Socket.emit('status', {'msg': 'Saved!!', 'delay': 3000});
+                                    Socket.emit('doUpdate', {});
+
+                                    // Delete the Local File
+                                    fs.unlink(nfile, function() {
+                                        console.log('Local File Deleted!');
+                                    })
+
                                 }
                             })
 

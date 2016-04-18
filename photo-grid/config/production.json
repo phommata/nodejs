@@ -1,0 +1,7 @@
+{
+  "host": "http://localhost:3000",
+  "S3AccessKey": "your-S3AccessKey",
+  "S3Secret": "your-S3Secret",
+  "S3Bucket": "***REMOVED***",
+  "dbURL": "mongodb://<dbuser>:<dbpassword>@ds011281.mlab.com:11281/***REMOVED***"
+}
