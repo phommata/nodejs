@@ -1,5 +1,5 @@
 {
-  "host": "***REMOVED***",
+  "host": "http://localhost:3000",
   "S3AccessKey": "***REMOVED***",
   "S3Secret": "***REMOVED***",
   "S3Bucket": "***REMOVED***",
