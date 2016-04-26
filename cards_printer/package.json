@@ -1,0 +1,11 @@
+{
+  "name": "cards_printer",
+  "version": "1.0.0",
+  "description": "CardsPrinter App (All About Node.js Course) Date : 3-Oct-2015 ------------------------------------------- Instructions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
