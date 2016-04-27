@@ -2,16 +2,18 @@
   "name": "cards_printer",
   "version": "1.0.0",
   "description": "CardsPrinter App (All About Node.js Course) Date : 3-Oct-2015 ------------------------------------------- Instructions",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --harmony-spreadcalls app.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^2.0.0",
     "handlebars": "^4.0.5",
     "hapi": "^13.3.0",
     "inert": "^3.2.0",
+    "stomp-client": "^0.8.1",
     "vision": "^4.1.0"
   }
 }
