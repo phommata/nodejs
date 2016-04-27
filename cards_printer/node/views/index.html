@@ -5,8 +5,15 @@
 	<title>Cards Printer</title>
 	<link rel="stylesheet" href="/public/css/style.css">
 	<link href="http://cdn.rawgit.com/noelboss/featherlight/1.3.2/release/featherlight.min.css" type="text/css" rel="stylesheet" title="Featherlight Styles" />
+	<script src="/babel/browser.min.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
 	<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.2/featherlight.min.js"></script>
+	<script text="text/babel">
+		$(() => {
+			let socket = io.connect();
+		});
+	</script>
 </head>
 <body>
 	<div class="container">

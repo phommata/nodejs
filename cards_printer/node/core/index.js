@@ -14,12 +14,23 @@ function core(server, options, next) {
     })
 
     // Core Logic
+    server.register({
+        register: require('./main'),
+        options: {
+            data: options.data
+        }
+    }, error => {
+        if (error) {
+            console.log('There was an error loading the main plugin')
+        }
+    });
 
     return next();
 }
 
 core.attributes = {
-    name: 'core'
+    name: 'core',
+    dependencies: ['inert', 'vision']
 }
 
 module.exports = core;
