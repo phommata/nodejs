@@ -1,6 +1,6 @@
 'use strict';
 require('dotenv').load();
-const Hapi = require('hapi');
+const Hapi = require('Hapi');
 const server = new Hapi.Server();
 
 server.connection({
