@@ -7,27 +7,61 @@ function main(server, options, next) {
     const client = new Stomp(...connectOpt); // node --harmony-spreadcalls app.js <staging feature>
     const io = SocketIO(server.listener);
     let itemArray = [];
+    const outQueue = '/queue/toPython';
+    const inQueue = '/queue/fromPython';
 
-    client.connect(sessionId =>{
-        console.log('Connected to Apache Apollo');
-    });
+    function stompClient() {
+        return new Promise((resolve, reject) => {
+            client.connect(sessionId =>{
+                console.log('Connected to Apache Apollo');
 
-    io.on('connection', socket => {
-        console.log('Connected!');
+                client.subscribe(inQueue, body => {
+                    itemArray.push(body);
+                });
 
-        if (itemArray.length > 0){
-            // Keep the button disabled
-            socket.emit("buttonState", {
-                state: false
-            })
-        } else {
-            // Enable the button
-            socket.emit("buttonState", {
-                state: true
-            })
-        }
-    });
+                resolve(sessionId, client);
+            }, error => {
+                reject(error);
+            });
+        });
+    }
 
+    function ioConnect() {
+        io.on('connection', socket => {
+            console.log('Connected!');
+
+            if (itemArray.length > 0){
+                // Keep the button disabled
+                socket.emit("buttonState", {
+                    state: false
+                })
+            } else {
+                // Enable the button
+                socket.emit("buttonState", {
+                    state: true
+                })
+            }
+
+            // Publish Data to Apollo
+            socket.on('begin', () => {
+                client.publish(outQueue, JSON.stringify(options.data));
+            });
+
+            // Watch the itemArray for changes
+            Array.observe(itemArray, () => {
+               socket.emit('item', {
+                   dataArray: itemArray[itemArray.length - 1]
+               });
+            });
+        });
+    }
+
+    stompClient()
+        .then(ioConnect)
+        .catch(err => {
+            console.log("There was an error  :: ", err);
+        });
+    
     return next();
 }
 
