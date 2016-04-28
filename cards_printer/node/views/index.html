@@ -12,6 +12,21 @@
 	<script text="text/babel">
 		$(() => {
 			let socket = io.connect();
+			let processBtn = $("#processBtn");
+
+			socket.on("buttonState", data => {
+				if (data.state) {
+					processBtn.removeClass("inactive");
+				} else {
+					processBtn.addClass("inactive");
+				}
+			});
+
+			processBtn.on("click", function(evt){
+				evt.preventDefault();
+				$(this).addClass("inactive");
+				// Start sending the data to Apollo
+			});
 		});
 	</script>
 </head>
