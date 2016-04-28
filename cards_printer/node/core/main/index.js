@@ -64,6 +64,7 @@ function main(server, options, next) {
         .then(ioConnect)
         .catch(err => {
             console.log("There was an error  :: ", err);
+            server.log('error', 'Error: ' + err);
         });
     
     return next();

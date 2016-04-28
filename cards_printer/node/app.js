@@ -1,5 +1,6 @@
 'use strict';
 require('dotenv').load();
+require("babel-core").transform("code", {code:true, babelrc: true});
 const Hapi = require('Hapi');
 const server = new Hapi.Server();
 
@@ -12,6 +13,19 @@ server.register([{
 },{
     register: require('vision')
 },{
+    register: require('good'),
+    options: {
+        opsInterval: 100000,
+        reporters: [{
+            reporter: require('good-file'),
+            events: {
+                log: '*',
+                ops: '*'
+            },
+            config: './applog.log'
+        }]
+    }
+},{
     register: require('./core'),
     options: {
         data: require('../data/studentData.json')
@@ -19,6 +33,7 @@ server.register([{
 }], error => {
     if (error) {
         console.log('Error: ', error);
+        server.log('Error: ', error);
     } else {
         // Start the server
         server.start(() => {
