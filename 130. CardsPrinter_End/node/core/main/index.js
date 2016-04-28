@@ -17,7 +17,7 @@ function main(server, options, next) {
             client.connect( sessionId => {
                 console.log('Connected to Apollo');
 
-                client.subscribe(inQueue, (body) => {
+                client.subscribe(inQueue, body => {
                     itemArray.push(body);
                 });
 
@@ -31,6 +31,8 @@ function main(server, options, next) {
 
     function ioConnect() {
             io.on('connection', socket => {
+                console.log('Connected!');
+
                 if (itemArray.length > 0) {
                     socket
                         .emit('buttonState', { 

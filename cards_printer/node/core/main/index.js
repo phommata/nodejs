@@ -32,14 +32,18 @@ function main(server, options, next) {
 
             if (itemArray.length > 0){
                 // Keep the button disabled
-                socket.emit("buttonState", {
+                socket
+                    .emit("buttonState", {
                     state: false
                 })
+                    .emit("allData",{
+                        dataArray: itemArray
+                    });
             } else {
                 // Enable the button
                 socket.emit("buttonState", {
                     state: true
-                })
+                });
             }
 
             // Publish Data to Apollo
