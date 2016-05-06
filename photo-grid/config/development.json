@@ -1,7 +1,7 @@
 {
   "host": "http://localhost:3000",
-  "S3AccessKey": "***REMOVED***",
-  "S3Secret": "***REMOVED***",
-  "S3Bucket": "***REMOVED***",
-  "dbURL": "mongodb://photogrid:test@ds011281.mlab.com:11281/***REMOVED***"
+  "S3AccessKey": "<your-S3AccessKey>",
+  "S3Secret": "<your-S3Secret>",
+  "S3Bucket": "<your-S3Bucket>",
+  "dbURL": "<your-mongodb-URL>"
 }
