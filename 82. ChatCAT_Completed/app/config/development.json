@@ -1,7 +1,7 @@
 {
 	"host": "http://localhost:3000",
 	"dbURI": "<your mongoLab.com database URI>",
-	"sessionSecret": "***REMOVED***",
+	"sessionSecret": "<your-sessionSecret>",
 	"fb": {
 		"clientID": "<facebook app ID key>",
 		"clientSecret": "<facebook app secret key>",

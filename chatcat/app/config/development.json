@@ -1,16 +1,16 @@
 {
   "host": "http://localhost:3000",
-  "dbURI": "***REMOVED***",
-  "sessionSecret": "***REMOVED***",
+  "dbURI": "<your-mongodb-uri",
+  "sessionSecret": "<your-sessionSecret>",
   "fb" : {
-    "clientID"      : "***REMOVED***",
-    "clientSecret"  : "***REMOVED***",
+    "clientID"      : "<your-fb-clientID>",
+    "clientSecret"  : "<your-fb-clientSecret>",
     "callbackURL"   : "http://localhost:3000/auth/facebook/callback",
     "profileFields" : ["id", "displayName", "photos"]
   },
   "twitter": {
-    "consumerKey"    : "***REMOVED***",
-    "consumerSecret" : "***REMOVED***",
+    "consumerKey"    : "<your-tw-consumerKey>",
+    "consumerSecret" : "<your-tw-consumerSecret>",
     "callbackURL"    : "http://localhost:3000/auth/twitter/callback",
     "profileFields"  : ["id", "displayName", "photos"]
   },
