@@ -1,15 +1,7 @@
 {
-<<<<<<< HEAD
   "host": "<your-host>",
   "S3AccessKey": "<your-S3AccessKey>",
   "S3Secret": "<your-S3Secret>",
   "S3Bucket": "<your-S3Bucket>",
   "dbURL": "<your-mongodb-URL>"
-=======
-  "host": "***REMOVED***",
-  "S3AccessKey": "***REMOVED***",
-  "S3Secret": "***REMOVED***",
-  "S3Bucket": "***REMOVED***",
-  "dbURL": "mongodb://photogrid:test@ds011281.mlab.com:11281/***REMOVED***"
->>>>>>> a29f793dc5433beaec054a301969abf9c6683126
 }
